@@ -11,3 +11,7 @@ lib/jquery/dist/jquery.js: lib/jquery
 .PHONY: build
 build: lib/jquery/dist/jquery.js devDependencies
 	@./node_modules/.bin/coffee --compile --output lib/ src/
+
+.PHONY: test
+test: build
+	@open test/index.html
