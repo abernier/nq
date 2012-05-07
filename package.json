@@ -1,0 +1,12 @@
+{
+  "author": "Antoine BERNIER <antoine.bernier@gmail.com>",
+  "name": "jQuery",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
