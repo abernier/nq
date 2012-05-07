@@ -1,16 +1,10 @@
 jQuery = (window) ->
-    ###
-    # jQuery
-    #
-    (function( window, undefined ) {
-    ...
-    // Expose jQuery to the global object
-    window.jQuery = window.$ = jQuery;
-    })(window);
-    ###
+  ###
+  ../lib/jquery/
+  ###
 
-    window.jQuery.noConflict()
-    window.jQuery
+  window.jQuery.noConflict()
+  window.jQuery
 
 create = (window) ->
   window ?= do ->
