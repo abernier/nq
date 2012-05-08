@@ -1,8 +1,5 @@
 jQuery = (window) ->
-  ###
-  ../lib/jquery/
-  ###
-
+  `m4_undivert(jquery.js)`
   window.jQuery.noConflict()
   window.jQuery
 
@@ -15,5 +12,6 @@ create = (window) ->
   jQuery(window)
 
 jQuery = @jQuery = create(@window)
+
 module?.exports = jQuery
 module?.exports.create = create
