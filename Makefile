@@ -24,7 +24,7 @@ ${JQUERY_SUMODULE_DIR}:
 test: build
 	mocha
 
-.PHONY:
+.PHONY: clean
 clean:
 	rm -Rf ${JQUERY_SUMODULE_DIR} ${M4_NQUERY} ${NQUERY} ${NODE_MODULES}
 
