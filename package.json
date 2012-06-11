@@ -4,6 +4,10 @@
   "description": "jQuery for node",
   "version": "0.0.0",
   "main": "lib/index.js",
+  "directories": {
+    "src": "src",
+    "lib": "lib"
+  },
   "dependencies": {
     "jsdom": "latest",
     "location": "latest",
@@ -20,7 +24,8 @@
     "test": "make test",
     "prepublish": "make test",
     "_build": "make build",
-    "_clean": "make clean"
+    "_clean": "make clean",
+    "_debug": "make debug"
   },
   "optionalDependencies": {},
   "engines": {
