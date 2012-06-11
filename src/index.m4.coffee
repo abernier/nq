@@ -6,7 +6,17 @@ create = (window, noConflict = false) ->
   if (not window.XMLHttpRequest? and typeof window.ActiveXObject isnt 'function')
     window.XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
 
+  ###
+  jQuery START
+  ===========================
+  ###
+
   `m4_undivert(jquery.js)`
+
+  ###
+  ===========================
+  jQuery END
+  ###
 
   window.jQuery.noConflict() if noConflict
   window.jQuery
