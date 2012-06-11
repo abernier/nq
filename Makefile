@@ -1,4 +1,8 @@
-./node_modules/.bin/coffee:
+.PHONY: all
+all: build
+
+./node_modules/.bin/coffee \
+./node_modules/.bin/mocha:
 	npm install -d
 
 lib/jquery:
@@ -14,5 +18,5 @@ build: lib/jquery/dist/jquery.js ./node_modules/.bin/coffee
 	@rm lib/index.m4.js
 
 .PHONY: test
-test: build
-	@open test/index.html
+test: build ./node_modules/.bin/mocha
+	@./node_modules/.bin/mocha
