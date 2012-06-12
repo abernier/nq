@@ -15,12 +15,12 @@ build: ${NQUERY}
 
 ${NQUERY}: ${JQUERY} ${M4_NQUERY} FORCE
 	m4 --prefix-builtins --include $(dir ${JQUERY}) ${M4_NQUERY} > $@
-	rm ${M4_NQUERY}
+	${MAKE} mostlyclean
 
 ${JQUERY}: ${JQUERY_SUMODULE_DIR}
 	${MAKE} -C $^
 
-${JQUERY_SUMODULE_DIR}:
+${JQUERY_SUMODULE_DIR}: FORCE
 	git submodule update --init
 
 ${LIB}/%.js: ${SRC}/%.coffee
@@ -30,9 +30,13 @@ ${LIB}/%.js: ${SRC}/%.coffee
 test: build
 	mocha
 
+.PHONY: mostlyclean
+mostlyclean:
+	rm -Rf ${JQUERY_SUMODULE_DIR} ${M4_NQUERY}
+
 .PHONY: clean
-clean:
-	rm -Rf ${JQUERY_SUMODULE_DIR} ${M4_NQUERY} ${NQUERY}
+clean: mostlyclean
+	rm -Rf ${NQUERY}
 
 FORCE:
 
