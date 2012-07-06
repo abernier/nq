@@ -1,10 +1,10 @@
 {
   "author": "Antoine BERNIER <antoine.bernier@gmail.com>",
-  "name": "nQuery",
+  "name": "nq",
   "description": "jQuery (also) for node",
   "repository": {
     "type" : "git",
-    "url": "http://github.com/abernier/nQuery.git"
+    "url": "http://github.com/abernier/nq.git"
   },
   "version": "0.0.0",
   "main": "lib/index.js",
