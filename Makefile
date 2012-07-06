@@ -13,8 +13,6 @@ build: $(NQUERY)
 
 .PHONY: prepublish
 prepublish: clean build mostlyclean
-	git tag -a $(VERSION) -m 'Release $(VERSION)'
-	git push origin $(VERSION)
 
 $(NQUERY): $(JQUERY) $(M4_NQUERY)
 	m4 --prefix-builtins --include $(dir $(JQUERY)) $(M4_NQUERY) > $@
