@@ -4,6 +4,8 @@
 npm install nq
 ```
 
+NB: package is hosted on [http://search.npmjs.org/#/nq](NPM registry)
+
 # Usage
 
 ## Client side
