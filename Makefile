@@ -13,6 +13,11 @@ build: $(NQUERY)
 .PHONY: prepublish
 prepublish: clean build mostlyclean
 
+.PHONY: postpublish
+postpublish:
+	git tag -s v${npm_package_version} -m 'Release ${npm_package_version}.'
+	git push origin v${npm_package_version}
+
 $(NQUERY): $(JQUERY) $(M4_NQUERY)
 	m4 --prefix-builtins --include $(dir $(JQUERY)) $(M4_NQUERY) > $@
 

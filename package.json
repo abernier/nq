@@ -23,6 +23,7 @@
   },
   "scripts": {
     "prepublish": "make prepublish",
+    "postpublish": "make postpublish",
     "_build": "make build",
     "_clean": "make clean",
     "_debug": "make debug"
