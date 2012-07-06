@@ -12,12 +12,8 @@ M4_NQUERY = $(basename $(NQUERY)).m4$(suffix $(NQUERY))
 build: $(NQUERY)
 
 .PHONY: prepublish
-prepublish:
-	$(MAKE) clean build mostlyclean
-
-.PHONY: postpublish
-postpublish:
-	git tag -a $(VERSION) -m 'Release $(VERSION).'
+prepublish: clean build mostlyclean
+	git tag -a $(VERSION) -m 'Release $(VERSION)'
 	git push origin $(VERSION)
 
 $(NQUERY): $(JQUERY) $(M4_NQUERY)
@@ -36,7 +32,7 @@ $(LIB)/%.js: $(SRC)/%.coffee
 #test: build
 
 .PHONY: mostlyclean
-mostlyclean:
+mostlyclean: FORCE
 	rm -Rf $(JQUERY_SUMODULE_DIR) $(M4_NQUERY)
 
 .PHONY: clean
