@@ -1,7 +1,11 @@
 {
   "author": "Antoine BERNIER <antoine.bernier@gmail.com>",
   "name": "nQuery",
-  "description": "jQuery for node",
+  "description": "jQuery (also) for node",
+  "repository": {
+    "type" : "git",
+    "url": "http://github.com/abernier/nQuery.git"
+  },
   "version": "0.0.0",
   "main": "lib/index.js",
   "directories": {
@@ -15,14 +19,10 @@
     "xmlhttprequest": "latest"
   },
   "devDependencies": {
-    "coffee-script": "1.3.x",
-    "mocha": "1.0.x",
-    "should": "0.6.x",
-    "chai": "latest"
+    "coffee-script": "1.3.x"
   },
   "scripts": {
-    "test": "make test",
-    "prepublish": "make test",
+    "publish": "make publish",
     "_build": "make build",
     "_clean": "make clean",
     "_debug": "make debug"

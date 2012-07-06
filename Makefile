@@ -2,41 +2,39 @@ SRC = ${npm_package_directories_src}
 LIB = ${npm_package_directories_lib}
 
 JQUERY_SUMODULE_DIR = lib/jquery
-JQUERY              = ${JQUERY_SUMODULE_DIR}/dist/jquery.js
+JQUERY              = $(JQUERY_SUMODULE_DIR)/dist/jquery.js
 
 NQUERY    = ${npm_package_main}
-M4_NQUERY = $(basename ${NQUERY}).m4$(suffix ${NQUERY})
+M4_NQUERY = $(basename $(NQUERY)).m4$(suffix $(NQUERY))
 
 .PHONY: build
-build: ${NQUERY}
+build: $(NQUERY)
 
-#.PHONY: publish
-#publish:
+.PHONY: publish
+publish: clean build mostlyclean
 
-${NQUERY}: ${JQUERY} ${M4_NQUERY} FORCE
-	m4 --prefix-builtins --include $(dir ${JQUERY}) ${M4_NQUERY} > $@
-	${MAKE} mostlyclean
+$(NQUERY): $(JQUERY) $(M4_NQUERY)
+	m4 --prefix-builtins --include $(dir $(JQUERY)) $(M4_NQUERY) > $@
 
-${JQUERY}: ${JQUERY_SUMODULE_DIR}
-	${MAKE} -C $^
+$(JQUERY): $(JQUERY_SUMODULE_DIR)
+	$(MAKE) -C $^
 
-${JQUERY_SUMODULE_DIR}: FORCE
+$(JQUERY_SUMODULE_DIR): FORCE
 	git submodule update --init
 
-${LIB}/%.js: ${SRC}/%.coffee
+$(LIB)/%.js: $(SRC)/%.coffee
 	coffee --compile --print $< > $@
 
-.PHONY: test
-test: build
-	mocha
+#.PHONY: test
+#test: build
 
 .PHONY: mostlyclean
 mostlyclean:
-	rm -Rf ${JQUERY_SUMODULE_DIR} ${M4_NQUERY}
+	rm -Rf $(JQUERY_SUMODULE_DIR) $(M4_NQUERY)
 
 .PHONY: clean
 clean: mostlyclean
-	rm -Rf ${NQUERY}
+	rm -Rf $(LIB)
 
 FORCE:
 
