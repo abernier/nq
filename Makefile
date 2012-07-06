@@ -10,8 +10,8 @@ M4_NQUERY = $(basename $(NQUERY)).m4$(suffix $(NQUERY))
 .PHONY: build
 build: $(NQUERY)
 
-.PHONY: publish
-publish: clean build mostlyclean
+.PHONY: prepublish
+prepublish: clean build mostlyclean
 
 $(NQUERY): $(JQUERY) $(M4_NQUERY)
 	m4 --prefix-builtins --include $(dir $(JQUERY)) $(M4_NQUERY) > $@
