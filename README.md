@@ -4,7 +4,7 @@
 npm install nq
 ```
 
-__NB: package is hosted on [NPM registry](http://search.npmjs.org/#/nq)__
+_NB: package is hosted on [NPM registry](http://search.npmjs.org/#/nq)_
 
 # Usage
 
