@@ -1,7 +1,7 @@
 # Install
 
 ```
-npm install nQuery
+npm install nq
 ```
 
 # Usage
@@ -9,16 +9,16 @@ npm install nQuery
 ## Client side
 
 ```html
-<script src="nQuery/lib/index.js"></script>
+<script src="node_modules/nq/lib/index.js"></script>
 ```
 
 ## Server-side
 
 ```coffeescript
-$ = require 'nQuery'
+$ = require 'nq'
 ```
 
 ```coffeescript
-$1 = require('nQuery').create(window1)
-$2 = require('nQuery').create(window2)
+$1 = require('nq').create(window1)
+$2 = require('nq').create(window2)
 ```
