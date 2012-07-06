@@ -6,7 +6,7 @@
     "type" : "git",
     "url": "http://github.com/abernier/nq.git"
   },
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "lib/index.js",
   "directories": {
     "src": "src",

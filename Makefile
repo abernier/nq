@@ -1,5 +1,6 @@
-SRC = ${npm_package_directories_src}
-LIB = ${npm_package_directories_lib}
+SRC     = ${npm_package_directories_src}
+LIB     = ${npm_package_directories_lib}
+VERSION = v${npm_package_version}
 
 JQUERY_SUMODULE_DIR = lib/jquery
 JQUERY              = $(JQUERY_SUMODULE_DIR)/dist/jquery.js
@@ -11,12 +12,13 @@ M4_NQUERY = $(basename $(NQUERY)).m4$(suffix $(NQUERY))
 build: $(NQUERY)
 
 .PHONY: prepublish
-prepublish: clean build mostlyclean
+prepublish:
+	$(MAKE) clean build mostlyclean
 
 .PHONY: postpublish
 postpublish:
-	git tag -s v${npm_package_version} -m 'Release ${npm_package_version}.'
-	git push origin v${npm_package_version}
+	git tag -a $(VERSION) -m 'Release $(VERSION).'
+	git push origin $(VERSION)
 
 $(NQUERY): $(JQUERY) $(M4_NQUERY)
 	m4 --prefix-builtins --include $(dir $(JQUERY)) $(M4_NQUERY) > $@
