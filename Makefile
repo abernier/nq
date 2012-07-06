@@ -34,7 +34,7 @@ mostlyclean:
 
 .PHONY: clean
 clean: mostlyclean
-	rm -Rf $(LIB)
+	rm -Rf $(NQUERY)
 
 FORCE:
 
