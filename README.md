@@ -1,7 +1,7 @@
 # Install
 
 ```
-npm install nq
+npm install nq[@<version>]
 ```
 
 _NB: package is hosted on [NPM registry](http://search.npmjs.org/#/nq)_
