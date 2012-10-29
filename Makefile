@@ -21,7 +21,7 @@ $(JQUERY): $(JQUERY_SUMODULE_DIR)
 	$(MAKE) -C $^
 
 $(JQUERY_SUMODULE_DIR): FORCE
-	git submodule update --init
+	git submodule update --init --recursive
 
 $(LIB)/%.js: $(SRC)/%.coffee
 	coffee --compile --print $< > $@
