@@ -37,3 +37,16 @@ Requirements:
 ```bash
 npm run-script _build
 ```
+
+## Publish
+
+* Be sure to have `npm adduser` you
+* Bump `package.json.version`
+
+Then:
+
+```bash
+npm publish
+git tag -a vX.Y.Z -m 'Tagging X.Y.Z'
+git push origin vX.Y.Z
+```
