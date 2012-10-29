@@ -1,10 +1,10 @@
 create = (window, noConflict = false) ->
-  window           ?= require('jsdom').jsdom().createWindow()
+  unless window?
+    window = require('jsdom').jsdom().createWindow()
+    window.XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
+    window.XMLHttpRequest.prototype.withCredentials = false
   window.location  ?= require('location')
   window.navigator ?= require('navigator')
-
-  if (not window.XMLHttpRequest? and typeof window.ActiveXObject isnt 'function')
-    window.XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
 
   ###
   jQuery START
