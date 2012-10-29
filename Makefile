@@ -18,7 +18,7 @@ $(NQUERY): $(JQUERY) $(M4_NQUERY)
 	m4 --prefix-builtins --include $(dir $(JQUERY)) $(M4_NQUERY) > $@
 
 $(JQUERY): $(JQUERY_SUMODULE_DIR)
-	$(MAKE) -C $^
+	cd $< && npm install && ./node_modules/.bin/grunt --force && cd $(CURDIR)
 
 $(JQUERY_SUMODULE_DIR): FORCE
 	git submodule update --init --recursive
