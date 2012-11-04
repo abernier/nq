@@ -35,7 +35,7 @@ Requirements:
 ## Build
 
 ```bash
-npm run-script _build
+npm run _build
 ```
 
 ## Publish
